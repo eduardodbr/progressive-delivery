@@ -13,7 +13,7 @@ on:
 jobs:
   build:
     permissions: 
-      contents: read
+      contents: write
       packages: write 
     uses: ./.github/workflows/build_and_push.yml
     with:
