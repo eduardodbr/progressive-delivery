@@ -13,4 +13,4 @@ input:
 output:
   sync_response: {}
   processors:
-    - mapping: root = "version 1.0.0"
+    - mapping: root = "version 0.0.1"
