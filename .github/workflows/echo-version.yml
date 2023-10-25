@@ -10,9 +10,11 @@ on:
       - applications/echo-version/**
     branches: [main]
 
-env:
-  BUILD_DIR: applications/echo-version
-
 jobs:
   build:
+    permissions: 
+      contents: read
+      packages: write 
     uses: ./.github/workflows/build_and_push.yml
+    with:
+      path: applications/echo-version
