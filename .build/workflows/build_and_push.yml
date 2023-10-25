@@ -1,14 +1,6 @@
 name: Build and Push
 
-on: 
-  push:
-    paths:
-      - applications/**
-    branches: [main]
-  pull_request:
-    paths:
-      - applications/**
-    branches: [main]
+on: [workflow_call]
 
 env:
   REGISTRY: ghcr.io
@@ -16,7 +8,6 @@ env:
 
 jobs:
   build:
-    needs: [test]
     name: Build docker image
     runs-on: ubuntu-latest
     permissions: 
@@ -48,8 +39,8 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
       with:
-        context: .
-        file: build/dockerfile
+        context: ${{ env.BUILD_DIR }}
+        file: ${{ env.BUILD_DIR }}/Dockerfile
         push: true
         tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.gitversion.outputs.semVer }}
     - name: Create tag
