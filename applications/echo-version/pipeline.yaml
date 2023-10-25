@@ -1,0 +1,16 @@
+http:
+  address: 0.0.0.0:4195
+  enabled: true
+
+input:
+  label: "version"
+  http_server:
+    path: /version
+    allowed_verbs:
+      - GET
+    timeout: 5s
+
+output:
+  sync_response: {}
+  processors:
+    - mapping: root = "version 1.0.0"
