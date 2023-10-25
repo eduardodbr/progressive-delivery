@@ -29,7 +29,7 @@ jobs:
       uses: gittools/actions/gitversion/execute@v0.9.7
       with:
         targetPath: ${{ inputs.path }}
-        configFilePath: ${{ inputs.path }}/GitVersion.yaml
+        configFilePath: ${{ inputs.path }}/GitVersion.yml
         useConfigFile: true
     - name: Display SemVer
       run: |
