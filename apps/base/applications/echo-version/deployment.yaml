@@ -5,7 +5,6 @@ metadata:
   labels:
     app: echo-version
 spec:
-  serviceAccountName: applications
   selector:
     matchLabels:
       app: echo-version
@@ -17,6 +16,7 @@ spec:
       labels:
         app: echo-version
     spec:
+      serviceAccountName: applications
       containers:
       - name: echo
         image: ""
