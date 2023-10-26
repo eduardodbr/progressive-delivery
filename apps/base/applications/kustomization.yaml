@@ -4,4 +4,5 @@ namespace: applications
 resources:
 - namespace.yaml
 - sa.yaml
+- image-update-automation.yaml
 - echo-version
