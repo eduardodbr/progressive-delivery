@@ -1,0 +1,10 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-version
+spec:
+  template:
+    spec:
+      containers:
+      - name: echo
+        image: ghcr.io/eduardodbr/progressive-delivery:0.1.22 # {"$imagepolicy": "applications:echo-version:tag"}

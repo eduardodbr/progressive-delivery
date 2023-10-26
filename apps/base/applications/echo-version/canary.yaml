@@ -1,0 +1,50 @@
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: echo-version
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: echo-version
+  progressDeadlineSeconds: 60
+  service:
+    port: 4195
+    targetPort: 4195
+    gateways:
+    - istio-system/public-gateway
+    trafficPolicy:
+      tls:
+        # use ISTIO_MUTUAL when mTLS is enabled
+        mode: DISABLE
+    retries:
+      attempts: 3
+      perTryTimeout: 1s
+      retryOn: "gateway-error,connect-failure,refused-stream"
+  analysis:
+    interval: 1m
+    threshold: 5
+    maxWeight: 50
+    stepWeight: 10
+    metrics:
+    - name: request-success-rate
+      thresholdRange:
+        min: 99
+      interval: 1m
+    - name: request-duration
+      thresholdRange:
+        max: 500
+      interval: 30s
+    webhooks:
+      - name: acceptance-test
+        type: pre-rollout
+        url: http://flagger-loadtester.istio-system/
+        timeout: 30s
+        metadata:
+          type: bash
+          cmd: "curl http://echo-version-canary.applications:4195/ready"
+      - name: load-test
+        url: http://flagger-loadtester.istio-system/
+        timeout: 5s
+        metadata:
+          cmd: "hey -z 2m -q 10 -c 2 http://echo-version-canary.applications:4195/version"

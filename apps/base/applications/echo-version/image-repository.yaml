@@ -1,0 +1,9 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: echo-version
+spec:
+  image: ghcr.io/eduardodbr/progressive-delivery
+  secretRef:
+    name: k8s-ghcr
+  interval: 5m
