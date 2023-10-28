@@ -14,4 +14,8 @@ spec:
   interval: 1h0m0s
   values:
     replicaCount: 2
+    reportsController:
+      enabled: false
+    cleanupController:
+      enabled: false
     
