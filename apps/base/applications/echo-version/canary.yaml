@@ -13,6 +13,8 @@ spec:
     targetPort: 4195
     gateways:
     - istio-system/public-gateway
+    hosts:
+    - '*'
     trafficPolicy:
       tls:
         # use ISTIO_MUTUAL when mTLS is enabled
@@ -20,6 +22,8 @@ spec:
     match:
       - uri:
           prefix: /echo-version
+    rewrite:
+      uri: /
     retries:
       attempts: 3
       perTryTimeout: 1s
