@@ -4,3 +4,4 @@ namespace: istio-system
 resources:
 - istio.yaml
 - flagger.yaml
+- kyverno.yaml
