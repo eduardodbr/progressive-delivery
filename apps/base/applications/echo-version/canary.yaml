@@ -21,7 +21,7 @@ spec:
         mode: DISABLE
     match:
       - uri:
-          prefix: /echo-version
+          prefix: /echo-version/
     rewrite:
       uri: /
     retries:
