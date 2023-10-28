@@ -17,6 +17,9 @@ spec:
       tls:
         # use ISTIO_MUTUAL when mTLS is enabled
         mode: DISABLE
+    match:
+      - uri:
+          prefix: /echo-version
     retries:
       attempts: 3
       perTryTimeout: 1s
