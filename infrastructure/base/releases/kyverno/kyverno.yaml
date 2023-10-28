@@ -18,4 +18,9 @@ spec:
       enabled: false
     cleanupController:
       enabled: false
+    cleanupJobs:
+      admissionReports:
+        enabled: false
+      clusterAdmissionReports:
+        enabled: false
     
