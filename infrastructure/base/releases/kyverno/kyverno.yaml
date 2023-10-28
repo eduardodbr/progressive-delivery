@@ -15,4 +15,6 @@ spec:
         kind: HelmRepository
         name: kyverno
   interval: 1h0m0s
+  values:
+    replicaCount: 2
     
