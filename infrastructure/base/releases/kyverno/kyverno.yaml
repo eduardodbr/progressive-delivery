@@ -4,10 +4,7 @@ metadata:
   name: kyverno
 spec:
   releaseName: kyverno
-  install:
-    crds: Create
-  upgrade:
-    crds: CreateReplace
+  targetNamespace: kyverno
   chart:
     spec:
       chart: kyverno
