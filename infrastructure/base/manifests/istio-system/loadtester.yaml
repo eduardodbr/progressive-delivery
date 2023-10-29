@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: flagger-loadtester
+        sidecar.istio.io/inject: "true"
       annotations:
         prometheus.io/scrape: "true"
         prometheus.io/port: "8080"
