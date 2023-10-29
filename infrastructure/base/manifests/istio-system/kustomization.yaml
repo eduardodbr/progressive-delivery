@@ -5,3 +5,4 @@ resources:
 - gateway.yaml
 - loadtester.yaml
 - istio-prometheus.yaml
+- istio-federation-service-monitor.yaml
