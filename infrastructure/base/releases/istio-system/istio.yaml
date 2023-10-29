@@ -79,5 +79,3 @@ spec:
       requests:
         cpu: 10m
         memory: 128Mi
-    # service:
-    #   type: "${service:=LoadBalancer}"

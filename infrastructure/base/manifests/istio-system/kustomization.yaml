@@ -4,3 +4,4 @@ namespace: istio-system
 resources:
 - gateway.yaml
 - loadtester.yaml
+- istio-prometheus.yaml
