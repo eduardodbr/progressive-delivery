@@ -4,3 +4,4 @@ resources:
 - istio.yaml
 - flagger.yaml
 - kyverno.yaml
+- prometheus-community.yaml
