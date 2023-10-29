@@ -7,4 +7,4 @@ spec:
     spec:
       containers:
       - name: echo
-        image: ghcr.io/eduardodbr/progressive-delivery:0.1.30 # {"$imagepolicy": "applications:echo-version"}
+        image: ghcr.io/eduardodbr/progressive-delivery:0.1.59 # {"$imagepolicy": "applications:echo-version"}
