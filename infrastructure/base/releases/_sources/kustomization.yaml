@@ -5,3 +5,4 @@ resources:
 - flagger.yaml
 - kyverno.yaml
 - prometheus-community.yaml
+- grafana.yaml

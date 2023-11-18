@@ -21,7 +21,7 @@ spec:
     commonLabels:
       tier: cluster
     grafana:
-      enabled: true
+      enabled: false
     kubeControllerManager:
       enabled: false
     kubeScheduler:
